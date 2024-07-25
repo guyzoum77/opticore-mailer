@@ -1,4 +1,4 @@
-# OptiCore JWT Module
+# OptiCore Mailer Module
 
 Overview
 ------------

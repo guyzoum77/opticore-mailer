@@ -12,6 +12,17 @@ import {GmailTransportConfigInterface as GmailTransportConfig} from "../interfac
 import {EmailTemplate} from "../../templates/email.template";
 import {messageUtils} from "../../utils/messages/message.utils";
 
+/**
+ * The EmailService class handles sending emails using various providers.
+ *
+ * The EmailService constructor initializes the transporter based on the provided configuration.
+ *
+ * The sendMail method adapts its behavior based on the configured service, supporting different email providers.
+ *
+ * The sendMailWithEmailTemplate method adapts its behavior based on the configured service,
+ * supporting different email providers and template view already build and configurable.
+ *
+ */
 export class MailerService {
     private transporter: Transporter;
 
