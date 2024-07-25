@@ -1,0 +1,41 @@
+{
+  "name": "opticore-mailer",
+  "version": "1.0.0",
+  "description": "opticore module mailer",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guyzoum77/opticore-mailer.git"
+  },
+  "keywords": [
+    "opticore-mailer",
+    "opticore"
+  ],
+  "author": "Guy-serge Kouacou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guyzoum77/opticore-mailer/issues"
+  },
+  "homepage": "https://github.com/guyzoum77/opticore-mailer#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "mailtrap": "^3.4.0",
+    "nodemailer": "^6.9.14",
+    "opticore-console-log-message": "^1.0.1",
+    "tsup": "^8.2.2",
+    "tsx": "^4.16.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.11",
+    "@types/nodemailer": "^6.4.15",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
