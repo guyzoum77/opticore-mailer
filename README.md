@@ -59,22 +59,25 @@ Example
 import { MailerService, ServiceName } from 'opticore-mailer';
 
 (async() => {
+    const credential = {user: "azerty", pass: "21dc!@dvf"};
     const mail = new MailerService({
-        service: ServiceName.gmail,
-        host: "",
+        service: ServiceNameEnums.gmail,
+        host: "define a host",
         port: 1234,
         pool: true,
         secure: true,
         auth: {
-            user: "user1",
-            pass: "user@12345"
+            user: credential.user,
+            pass: credential.pass
         }
     });
     await mail.sendMail(
-        "test@mail.com",
-        "toto@gmail.com",
-        "Inscrition to news letter",
-        "Welcome to ourn new post ..."
+        {
+            to: "define sender mail",
+            from: "define receiver mail",
+            subject: "define the subject",
+            html: "content can be html or text, no matter what"
+        }
     );
 })();
 ```
@@ -133,37 +136,31 @@ Example
 import { MailerService, ServiceName } from 'opticore-mailer';
 
 (async() => {
-    let user = { username: "BesKane", email: "email@mail.com" }
-    const mail = new MailerService({
-        service: ServiceName.gmail,
+    const credential = {user: "azerty", pass: "21dc!@dvf"};
+    const mail: MailerService = new MailerService({
+        service: ServiceNameEnums.gmail,
         host: "",
         port: 1234,
         pool: true,
         secure: true,
         auth: {
-            user: "",
-            pass: ""
+            user: credential.user,
+            pass: credential.pass
         }
     });
-    await mail.sendMailWithEmailTemplate(
-        "opticore@mail.com",
-        "toto@gmail.com",
-        "test",
-        user,
-        "test QA",
-        "lorem ipsum",
-        "test/again",
-        "Send",
-        "ffffff",
-        "ff5733",
-        "Welcom",
-        "Al right reserved",
-        2024,
-        "Vioney",
-        "",
-        "",
-        "https"
-    );
+
+    let user = { username: "BesKane", email: "email@mail.com"}
+    await mail.sendMailWithMailTemplate({
+        to: "define sender mail",
+        from: "define receiver mail",
+        subject: "define the subject",
+        html: "content can be html or text, no matter what"
+        html: {
+            appName: "application name", allRightReservedYears: 2024, user, mailTitle: "mail title", mailContent: "mail content", urlAction: "url action", buttonActionTitle: "action button title",
+            buttonColor: "define string color", buttonBackgroundColor: "background color", conditionUsingText: "", footerAllRightReservedText: "All right reserved", politicsText: "politics",
+            greatingWord: "welcome", protocol: "http"
+        },
+    });
 })();
 ```
 

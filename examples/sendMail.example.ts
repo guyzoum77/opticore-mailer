@@ -14,44 +14,39 @@ import {MailerService} from "../src";
         }
     });
     await mail.sendMail(
-        "",
-        "",
-        "",
-        ""
+        {
+            to: "",
+            from: "",
+            subject: "",
+            html: ""
+        }
     );
 })();
 
 
 (async() => {
-    let user = { username: "BesKane", email: "email@mail.com"}
-    const mail = new MailerService({
+    const credential = {user: "azerty", pass: "21dc!@dvf"};
+    const mail: MailerService = new MailerService({
         service: ServiceNameEnums.gmail,
         host: "",
         port: 1234,
         pool: true,
         secure: true,
         auth: {
-            user: "",
-            pass: ""
+            user: credential.user,
+            pass: credential.pass
         }
     });
-    await mail.sendMailWithEmailTemplate(
-        "opticore@mail.com",
-        "toto@gmail.com",
-        "test",
-         user,
-        "test QA",
-        "lorem ipsum",
-        "test/again",
-        "Send",
-        "ffffff",
-        "ff5733",
-        "Welcom",
-        "Al right reserved",
-        2024,
-        "NoCors",
-        "",
-        "",
-        "https"
-    );
+
+    let user = { username: "BesKane", email: "email@mail.com"}
+    await mail.sendMailWithMailTemplate({
+        to: "",
+        from: "",
+        subject: "",
+        html: {
+            appName: "", allRightReservedYears: 2024, user, mailTitle: "", mailContent: "", urlAction: "", buttonActionTitle: "",
+            buttonColor: "", buttonBackgroundColor: "", conditionUsingText: "", footerAllRightReservedText: "", politicsText: "",
+            greatingWord: "", protocol: "http"
+        },
+    });
 })();
