@@ -15,8 +15,8 @@ import XOAuth2 from "nodemailer/lib/xoauth2";
 import {HttpStatusCodesConstant as status} from "../../utils/constants/httpStatusCode.constant";
 import {SingleMailOptionsInterface as MailOptions} from "../interfaces/options/singleMailOptions.interface";
 import {GroupMailOptionsInterface as GroupMailOptions} from "../interfaces/options/groupMailOptions.interface";
-import {MailOptionsWithTemplateInterface} from "../interfaces/options/mailOptionsWithTemplate.interface";
-import {GroupMailWithTemplateOptionsInterface} from "../interfaces/options/groupMailWithTemplateOptions.interface";
+import {MailOptionsWithTemplateInterface as MailOptionsWithTemplate} from "../interfaces/options/mailOptionsWithTemplate.interface";
+import {GroupMailWithTemplateOptionsInterface as GroupMailWithTemplateOptions} from "../interfaces/options/groupMailWithTemplateOptions.interface";
 
 
 /**
@@ -251,7 +251,7 @@ export class MailerService {
      *
      * @param options
      */
-    public async sendMailWithMailTemplate(options: MailOptionsWithTemplateInterface): Promise<any> {
+    public async sendMailWithMailTemplate(options: MailOptionsWithTemplate): Promise<any> {
         try {
             await this.transporter.sendMail({
                 from: options.from,
@@ -323,7 +323,7 @@ export class MailerService {
      *
      * @param options
      */
-    public async sendMailWithMailTemplateToGroup(options: GroupMailWithTemplateOptionsInterface): Promise<string | any> {
+    public async sendMailWithMailTemplateToGroup(options: GroupMailWithTemplateOptions): Promise<string | any> {
         try {
             for (const to of options.recipients) {
                 await this.transporter.sendMail({
