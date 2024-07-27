@@ -1,6 +1,5 @@
 import nodemailer, {SendMailOptions, Transporter} from 'nodemailer';
 import amqp, {Connection} from 'amqplib';
-import {constants} from "node:http2";
 
 import {EmailTransportConfigType} from "../types/emailTransportConfig.type";
 import {MailgunTransportConfigInterface as MailgunTransportConfig} from "../interfaces/mailgunTransportConfig.interface";
@@ -13,13 +12,11 @@ import {GmailTransportConfigInterface as GmailTransportConfig} from "../interfac
 import {EmailTemplate} from "../../templates/email.template";
 import {messageUtils as msg} from "../../utils/messages/message.utils";
 import XOAuth2 from "nodemailer/lib/xoauth2";
-import StackTraceHandler from "../../utils/exceptions/handler/stackTrace.handler";
 import {HttpStatusCodesConstant as status} from "../../utils/constants/httpStatusCode.constant";
 import {SingleMailOptionsInterface as MailOptions} from "../interfaces/options/singleMailOptions.interface";
 import {GroupMailOptionsInterface as GroupMailOptions} from "../interfaces/options/groupMailOptions.interface";
 import {MailOptionsWithTemplateInterface} from "../interfaces/options/mailOptionsWithTemplate.interface";
 import {GroupMailWithTemplateOptionsInterface} from "../interfaces/options/groupMailWithTemplateOptions.interface";
-import JSONTransport from "nodemailer/lib/json-transport";
 
 
 /**
